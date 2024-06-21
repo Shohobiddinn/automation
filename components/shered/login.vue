@@ -9,8 +9,8 @@ const state = reactive({
 
 const validate = (state: any): FormError[] => {
     const errors = []
-    if (!state.login) errors.push({ path: 'login', message: 'Required' })
-    if (!state.password) errors.push({ path: 'password', message: 'Required' })
+    if (!state.login) errors.push({ path: 'login', message: 'Loginni kiritish majburiy' })
+    if (!state.password) errors.push({ path: 'password', message: 'Paro\'l kiritish majburiy' })
     return errors
 }
 
@@ -20,11 +20,10 @@ async function onSubmit(event: FormSubmitEvent<any>) {
         password: state.password
     }
     api.token(data).then((res) => {
+        
         console.log('Success', res);
-
     }).catch((err: any) => {
         console.error('Failed to', err);
-
     })
 }
 </script>
@@ -34,15 +33,15 @@ async function onSubmit(event: FormSubmitEvent<any>) {
         <div class="min-w-[500px] relative z-50 bg-gray-800 p-4 rounded-lg">
             <UForm :validate="validate" :state="state" class="space-y-4" @submit="onSubmit">
                 <UFormGroup label="Login" name="login">
-                    <UInput v-model="state.login" />
+                    <UInput v-model="state.login" icon="i-heroicons-envelope" :trailing-icon="!state.login ? 'i-heroicons-exclamation-triangle-20-solid' : undefined"  />
                 </UFormGroup>
 
                 <UFormGroup label="Password" name="password">
-                    <UInput v-model="state.password" type="password" />
+                    <UInput v-model="state.password" type="password" icon="i-heroicons-light-bulb" />
                 </UFormGroup>
 
                 <UButton type="submit" color="blue" class="w-full text-center flex items-center justify-center">
-                    Submit
+                    Submit <UIcon name="i-ph-rocket-launch" dynamic />
                 </UButton>
             </UForm>
 
