@@ -2,8 +2,8 @@ import axios from 'axios';
 import baseurl from './baseurl';
 
 export default async function server(
-	endpoint = '',
-	method = 'get',
+	endpoint: string = '',
+	method: string = 'get',
 	data: any | null = null,
 ) {
 	let token: String = '12324';
@@ -19,10 +19,10 @@ export default async function server(
 		.then((res) => {
 			result = res;
 		})
-		.catch((err:any) => {
+		.catch((err: any) => {
 			error = err;
 			console.log(error);
-			
+
 		})
 		.finally(() => {
 		});
