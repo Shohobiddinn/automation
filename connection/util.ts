@@ -1,6 +1,5 @@
 import Swal from 'sweetalert2';
 import type { SweetAlertIcon } from 'sweetalert2';
-import type { Login } from '~/interfaces/api';
 export default {
   payment_types: ["naqd", "plastik", "click"],
   units: ["ta", "dona", "kg", "litr", "metr", "m²", "п/м"],
