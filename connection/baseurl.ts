@@ -1,1 +1,1 @@
-export default "https://demo.api-insell.uz/";
+export default "https://apistallon.pythonanywhere.com/";

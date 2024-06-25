@@ -4,6 +4,6 @@ import type { Login } from "~/interfaces/api";
 
 export default {
     token(data: Login) {
-        return server('token', 'post', util.formData(data)); // util modulidagi formData funksiyasini chaqirish
+        return server('user/login/', 'post', data); // util modulidagi formData funksiyasini chaqirish
     }
 }
